@@ -9,7 +9,7 @@ def thefunction(A, k, file):
     # initializations and checks
     n = A.shape[0]
     if k > 5:
-        print "The order of the batch MMF is too huge! Reducing it appropriately."
+        print ("The order of the batch MMF is too huge! Reducing it appropriately.")
 
     # loading the orthogonal matrices
     filename = os.getcwd() + "/OrthMats/" + "OrthMats" + str(k) + ".npz"
@@ -41,7 +41,7 @@ def thefunction(A, k, file):
     for level in range (1,L+1):
 
         # print out the level details
-        print "---> " + file + "--- Level " + str(level) + "/" + str(L) + "--- Order " + str(k)
+        print ("---> " + file + "--- Level " + str(level) + "/" + str(L) + "--- Order " + str(k))
 
         # initiaizing within this level -- staring at the previous level compression and indices set
         A_lprev = A_l # current approximation of the input matrix A
@@ -219,10 +219,10 @@ def batmmf_Exhaus_nonpar(Mat, Ord, file, disp):
     return outs
 
 # example run code
-# # temp = np.random.rand(6,20)
-# # Mat = np.dot(temp, temp.T)
-# # Ord = 4
-# # batmmf_Exhaus_nonpar(Mat, Ord, "trying", 1)
+temp = np.random.rand(6,20)
+Mat = np.dot(temp, temp.T)
+Ord = 4
+batmmf_Exhaus_nonpar(Mat, Ord, "trying", 1)
 
 ###
 # END
